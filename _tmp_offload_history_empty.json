@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "created_at": "2026-04-24T08:10:22+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    }
+  ]
+}

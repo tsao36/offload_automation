@@ -1,0 +1,11 @@
+# Offload Automation Standalone Dependencies
+psycopg2-binary
+python-dotenv
+msal
+jira
+requests
+httpx
+joblib
+scikit-learn
+pandas
+urllib3

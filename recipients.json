@@ -1,0 +1,69 @@
+
+{
+  "to": [
+        "frank.lee@intel.com",
+        "zhiqiang.cai@intel.com",
+        "nicky.chen@intel.com",
+        "charles.p.chu@intel.com",
+        "kj.fang@intel.com",
+        "timdaway.lai@intel.com",
+        "frank.fc.yang@intel.com",
+        "matt.chen@intel.com",
+        "steven1.chen@intel.com",
+        "yu-wei.chen@intel.com",
+        "jackx.lee@intel.com",
+        "wesley.kuo@intel.com",
+        "bingyue.sun@intel.com",
+        "juan.zou@intel.com",
+        "arielx.fan@intel.com",
+      
+        "brenton.wu@intel.com",
+        "wei-ling.chi@intel.com",
+        "yuan-yuan.tu@intel.com",
+        "cce.wireless.ce.cfe.wifi.gb@intel.com",
+        "cce.wireless.ce.cfe.bt.gb@intel.com"
+  ],
+  "cc": ["jonathan.tsao@intel.com"],
+  "bcc": ["jonathan.tsao@intel.com"],
+  "technology_assignee_map": {
+    "wifi": [
+      "frank.lee@intel.com",
+      "zhiqiang.cai@intel.com",
+      "charles.p.chu@intel.com",
+      "kj.fang@intel.com",
+      "timdaway.lai@intel.com",
+      "frank.fc.yang@intel.com",
+      "jackx.lee@intel.com",
+      "brenton.wu@intel.com"
+    ],
+    "bt": [
+      "matt.chen@intel.com",
+      "steven1.chen@intel.com",
+      "yu-wei.chen@intel.com",
+      "wesley.kuo@intel.com",
+      "bingyue.sun@intel.com",
+      "juan.zou@intel.com",
+      "brenton.wu@intel.com"
+      
+    ]
+  },
+  "reporter_email_map": {
+    "Frank Lee": "frank.lee@intel.com",
+    "Zhiqiang Cai": "zhiqiang.cai@intel.com",
+    "Nicky Chen": "nicky.chen@intel.com",
+    "Charles Chu": "charles.p.chu@intel.com",
+    "KJ Fang": "kj.fang@intel.com",
+    "Timdaway Lai": "timdaway.lai@intel.com",
+    "Frank Yang": "frank.fc.yang@intel.com",
+    "Matt Chen": "matt.chen@intel.com",
+    "Steven1 Chen": "steven1.chen@intel.com",
+    "Yu-wei Chen": "yu-wei.chen@intel.com",
+    "Jack Lee": "Jackx.lee@intel.com",
+    "Wesley Kuo": "wesley.kuo@intel.com",
+    "Bingyue Sun": "bingyue.sun@intel.com",
+    "Juan Zou": "juan.zou@intel.com",
+    "Brenton Wu": "brenton.wu@intel.com",
+    "Jonathan Tsao": "jonathan.tsao@intel.com",
+    "tsao chihwei": "tsao36@gmail.com"
+  }
+}

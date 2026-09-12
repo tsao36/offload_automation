@@ -1,0 +1,3376 @@
+{
+  "entries": [
+    {
+      "created_at": "2026-04-18T04:23:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-18T08:23:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-19T16:19:34+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-20T12:23:28+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-20T14:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-20T22:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-20T16:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-20T18:53:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-20T22:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-20T20:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T01:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T06:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T06:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-21T07:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T09:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-21T14:59:07+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T10:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T14:59:07+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T19:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-21T23:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-22T03:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 15.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-22T08:23:07+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 15.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-22T15:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 15.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-22T19:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-23T01:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Leo Chiang",
+      "trigger_threshold": 10,
+      "trigger_count": 15.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-04-23T03:53:10+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-24T03:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-24T07:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-24T08:53:15+00:00",
+      "status": "canceled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "980796",
+      "issue_title": "[VAIO][MTL]When connecting to a 6GHz AP, UHB is being used for SPD.",
+      "issue_created_date": "2025-10-08 08:27:37",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Steven1 Chen",
+      "receiving_reporter": "Yu-wei Chen",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 0.0
+    },
+    {
+      "created_at": "2026-04-25T01:32:45+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-25T07:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-25T11:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-27T03:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-27T03:53:12+00:00",
+      "status": "cancelled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "-1",
+      "issue_title": "[DB HEALTH] DB not updated - ERROR | script crashed, exit code 1 (2026-04-27 11:50)",
+      "issue_created_date": "2026-04-27 00:00:00",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Steven1 Chen",
+      "receiving_reporter": "Yu-wei Chen",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 0.0
+    },
+    {
+      "created_at": "2026-04-27T07:53:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-27T14:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-27T18:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-27T23:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-28T03:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-28T07:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-28T13:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-28T23:53:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-29T04:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-29T08:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T01:53:29+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T06:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T07:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 18.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-04-30T09:23:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T10:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T14:23:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-04-30T18:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T00:53:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T01:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T05:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T05:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T11:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-01T11:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T01:23:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T01:23:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T08:55:02+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T08:55:02+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T13:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T13:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T23:53:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-02T23:53:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T07:23:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T07:23:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T11:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T11:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 21.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T15:53:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T15:53:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Frank Yang",
+      "trigger_threshold": 15,
+      "trigger_count": 20.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-05-04T17:37:28+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:22:54+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:23:24+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:23:54+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:24:07+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:24:20+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:24:33+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T18:24:57+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-04T22:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-05T05:23:23+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-05T09:53:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-05T13:53:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-05T18:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-06T06:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-06T10:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-06T14:53:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-06T19:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-06T23:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-07T04:53:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-07T09:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-07T13:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-08T04:56:55+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-08T16:23:23+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-10T04:12:41+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-10T11:53:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-11T07:15:33+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-11T16:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-12T01:10:33+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-12T06:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-12T14:23:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-12T18:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-12T22:53:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-13T03:23:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-13T07:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-13T11:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-13T15:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-13T19:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T00:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T05:23:29+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T09:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T13:53:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T18:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-05-14T22:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Steven1 Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-05-15T01:04:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-01T06:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-01T16:53:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-02T00:53:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-02T05:23:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-02T09:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-02T13:23:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-02T14:53:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-03T06:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Bingyue Sun",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-03T06:53:12+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-05T07:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-09T00:40:02+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-05T11:43:24+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-09T00:40:02+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-06T06:53:46+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-09T00:40:02+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-08T02:31:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-09T00:40:02+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-08T06:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-09T00:40:02+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-17T03:26:46+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-17T07:26:46+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-18T00:27:02+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-18T00:27:08+00:00",
+      "status": "cancelled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1017028",
+      "issue_title": "[MSI_MS-B213_WCL] BT compatibility issue_3",
+      "issue_created_date": "2026-06-17 06:30:53",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Wesley Kuo",
+      "receiving_reporter": "Leo Chiang",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 0.0,
+      "cancelled_at": "2026-07-07T07:23:10+00:00",
+      "cancel_reason": "Receiving reporter is no longer eligible for offload rotation."
+    },
+    {
+      "created_at": "2026-06-18T01:56:44+00:00",
+      "status": "cancelled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1017025",
+      "issue_title": "[MSI_MS-B213_WCL] BT compatibility issue_2",
+      "issue_created_date": "2026-06-17 06:25:10",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Wesley Kuo",
+      "receiving_reporter": "Leo Chiang",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 1.0,
+      "cancelled_at": "2026-07-07T07:23:10+00:00",
+      "cancel_reason": "Receiving reporter is no longer eligible for offload rotation."
+    },
+    {
+      "created_at": "2026-06-18T02:26:46+00:00",
+      "status": "realized",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1016904",
+      "issue_title": "[MSI_MS-B213_WCL] BT compatibility issue",
+      "issue_created_date": "2026-06-17 03:54:18",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Wesley Kuo",
+      "receiving_reporter": "Juan Zou",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 2.0,
+      "realized_at": "2026-06-18T06:53:08+00:00",
+      "current_reporter": "Juan Zou"
+    },
+    {
+      "created_at": "2026-06-18T04:56:40+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-18T09:26:53+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-19T01:37:48+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-06-19T07:09:32+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-06-30T03:27:21+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-02T02:44:29+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-02T06:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-02T13:53:22+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-03T00:23:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-03T04:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-03T08:53:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-03T16:47:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-05T09:30:30+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-06T01:18:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-06T05:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-06T09:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-06T16:23:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-07T01:50:58+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-07T05:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-07T07:23:21+00:00",
+      "status": "cancelled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1017028",
+      "issue_title": "[MSI_MS-B213_WCL] BT compatibility issue_3",
+      "issue_created_date": "2026-06-17 06:30:53",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Wesley Kuo",
+      "receiving_reporter": "Juan Zou",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 1.0,
+      "cancelled_at": "2026-07-18T05:21:22.362654+00:00",
+      "cancelled_reason": "IPS case is closed/close-pending in DB; offload no longer applicable."
+    },
+    {
+      "created_at": "2026-07-07T07:53:15+00:00",
+      "status": "cancelled",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1017025",
+      "issue_title": "[MSI_MS-B213_WCL] BT compatibility issue_2",
+      "issue_created_date": "2026-06-17 06:25:10",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Wesley Kuo",
+      "receiving_reporter": "Juan Zou",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 2.0,
+      "cancelled_at": "2026-07-18T05:21:22.362654+00:00",
+      "cancelled_reason": "IPS case is closed/close-pending in DB; offload no longer applicable."
+    },
+    {
+      "created_at": "2026-07-07T09:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-07T10:53:15+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-16T02:21:04+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-16T07:31:56+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-16T11:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-17T00:11:24+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-17T04:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-17T08:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-17T12:23:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-18T04:47:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-18T08:53:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-18T13:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-18T17:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-19T01:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-19T05:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-19T14:20:22+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-20T04:03:28+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-20T08:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-20T12:23:09+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-20T16:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-21T01:01:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-22T01:29:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-22T05:53:22+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-22T10:23:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-22T14:31:47+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-23T01:57:23+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-23T06:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-23T10:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-24T00:32:50+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-24T04:53:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-24T08:53:08+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-24T14:53:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-24T17:23:09+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-07-30T08:53:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Juan Zou",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-07-31T01:06:49+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-03T11:55:53+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-03T16:46:50+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T01:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T05:29:38+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T05:29:38+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T14:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T14:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T23:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-04T23:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-05T03:53:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-05T13:27:26+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-05T03:53:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-05T13:27:26+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-06T09:53:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-06T16:08:47+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-06T16:08:47+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-07T00:17:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-07T00:17:21+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-07T21:22:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-07T21:22:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-17T02:54:03+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-17T02:54:03+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-17T07:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-17T14:08:29+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-18T02:53:55+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-18T07:04:35+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-19T02:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-19T06:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-19T10:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-20T02:23:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-20T06:53:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-20T13:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-21T00:29:06+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-21T00:29:12+00:00",
+      "status": "pending",
+      "table": "ips_jira_bugs",
+      "ips_case_number": "1026053",
+      "issue_title": "Test WCS JIRA BT case promotion checking - 20/08/2026 - Please ignore the case",
+      "issue_created_date": "2026-08-20 12:34:07",
+      "overloaded_reporter": "Jonathan Tsao",
+      "trigger_reporter": "Matt Chen",
+      "receiving_reporter": "Juan Zou",
+      "overloaded_count_at_offload": 0.0,
+      "receiving_count_at_offload": 1.0
+    },
+    {
+      "created_at": "2026-08-21T05:33:38+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-21T09:53:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-21T14:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-21T19:30:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-22T00:05:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-22T04:23:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-24T03:34:43+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-24T07:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 15.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-25T00:58:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-25T05:23:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-25T09:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-25T13:53:14+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-26T01:33:29+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 14.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-26T05:53:10+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-26T10:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-26T15:23:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-26T20:23:13+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-27T02:42:02+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-27T06:53:12+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-27T10:53:15+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 13.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-28T02:57:40+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-28T07:23:11+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-08-28T13:34:59+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-08-30T12:39:11+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-04T07:23:15+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-04T13:50:20+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-05T03:06:53+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-07T02:53:10+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-07T06:53:21+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-08T00:25:16+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-08T04:53:13+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-08T08:53:16+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-08T14:53:17+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-09T00:19:34+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-09T00:19:34+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-09-09T13:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-09T04:23:19+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-09T04:23:19+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-09-09T13:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-09T06:53:17+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-09-10T01:28:51+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-09T08:53:16+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-09T08:53:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Matt Chen",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ],
+      "cleared_at": "2026-09-09T13:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-09T10:53:23+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-09-10T01:28:51+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-09T13:53:20+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-10T01:28:51+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-10T03:23:25+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-09-10T14:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-10T05:53:13+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-10T07:53:16+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 16.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-09-10T14:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-10T09:53:17+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-10T14:11:18+00:00",
+      "status": "trigger_cleared",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Zhiqiang Cai",
+      "trigger_threshold": 15,
+      "trigger_count": 17.0,
+      "trigger_groups": [
+        "wifi"
+      ],
+      "cleared_at": "2026-09-10T14:53:20+00:00",
+      "cleared_reason": "Current count is now at/below threshold."
+    },
+    {
+      "created_at": "2026-09-10T14:11:18+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 11.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-11T01:23:17+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-11T05:53:16+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-11T09:53:28+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-11T13:57:19+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    },
+    {
+      "created_at": "2026-09-12T01:23:08+00:00",
+      "status": "awaiting_source_transfer",
+      "table": "ips_jira_bugs",
+      "trigger_reporter": "Wesley Kuo",
+      "trigger_threshold": 10,
+      "trigger_count": 12.0,
+      "trigger_groups": [
+        "bt"
+      ]
+    }
+  ]
+}

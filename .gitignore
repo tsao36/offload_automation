@@ -1,0 +1,20 @@
+# Sensitive secrets
+.env
+*.key
+*.pem
+*.crt
+
+# Token cache
+.graph_msal_token_cache.json
+.offload_csv_watch_state.json
+
+# Python virtual environment & cache
+.venv/
+venv/
+ENV/
+__pycache__/
+*.pyc
+
+# Logs & temporary runtime outputs
+logs/
+*.log
