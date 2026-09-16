@@ -11,12 +11,15 @@ from datetime import datetime
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 ROOT = Path(__file__).resolve().parent
 SNAPSHOT_PATH = Path(os.environ.get("OFFLOAD_LOADING_SNAPSHOT_FILE", "team_loading_latest.json"))
 if not SNAPSHOT_PATH.is_absolute():
     SNAPSHOT_PATH = ROOT / SNAPSHOT_PATH
+HISTORY_PATH = Path(os.environ.get("OFFLOAD_LOADING_HISTORY_DIR", str(ROOT / "loading_history")))
+if not HISTORY_PATH.is_absolute():
+    HISTORY_PATH = ROOT / HISTORY_PATH
 BATCH_PATH = ROOT / "run_offload_loading_summary_daily.bat"
 RUN_LOCK = threading.Lock()
 RUN_PROCESS: subprocess.Popen[bytes] | None = None
@@ -29,7 +32,10 @@ class LoadingDashboardHandler(SimpleHTTPRequestHandler):
     def do_GET(self) -> None:
         parsed = urlparse(self.path)
         if parsed.path == "/api/loading":
-            self._send_snapshot()
+            self._send_snapshot(parse_qs(parsed.query).get("date", ["latest"])[0])
+            return
+        if parsed.path == "/api/dates":
+            self._send_dates()
             return
         if parsed.path == "/api/batch":
             self._send_batch_status()
@@ -54,29 +60,52 @@ class LoadingDashboardHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
-    def _send_snapshot(self) -> None:
+    def _read_snapshot(self, selected_date: str) -> dict | None:
+        path = SNAPSHOT_PATH if selected_date in ("", "latest") else HISTORY_PATH / f"{selected_date}.json"
+        try:
+            with path.open("r", encoding="utf-8") as handle:
+                snapshot = json.load(handle)
+            return snapshot if isinstance(snapshot, dict) else None
+        except (OSError, ValueError):
+            if selected_date not in ("", "latest"):
+                latest = self._read_snapshot("latest")
+                if latest and str(latest.get("generated_at", ""))[:10] == selected_date:
+                    return latest
+            return None
+
+    def _send_dates(self) -> None:
+        dates = []
+        if HISTORY_PATH.exists():
+            dates = sorted(
+                (path.stem for path in HISTORY_PATH.glob("????-??-??.json")),
+                reverse=True,
+            )
+        latest = self._read_snapshot("latest")
+        latest_date = str(latest.get("generated_at", ""))[:10] if latest else ""
+        if latest_date and latest_date not in dates:
+            dates.insert(0, latest_date)
+        self._send_json({"dates": dates})
+
+    def _send_snapshot(self, selected_date: str) -> None:
         payload = {
             "generated_at": None,
             "categories": [],
             "rows": [],
             "available": False,
-            "message": "No batch result is available yet. Run run_offload_loading_summary_daily.bat first.",
+            "selected_date": selected_date,
+            "message": "No batch result is available yet. Run the daily loading batch first.",
         }
-        try:
-            with SNAPSHOT_PATH.open("r", encoding="utf-8") as handle:
-                snapshot = json.load(handle)
-            if isinstance(snapshot, dict):
-                payload.update(
-                    {
-                        "generated_at": snapshot.get("generated_at"),
-                        "categories": snapshot.get("categories") or [],
-                        "rows": snapshot.get("rows") or [],
-                        "available": True,
-                        "message": "",
-                    }
-                )
-        except (OSError, ValueError):
-            pass
+        snapshot = self._read_snapshot(selected_date)
+        if snapshot is not None:
+            payload.update(
+                {
+                    "generated_at": snapshot.get("generated_at"),
+                    "categories": snapshot.get("categories") or [],
+                    "rows": snapshot.get("rows") or [],
+                    "available": True,
+                    "message": "",
+                }
+            )
 
         self._send_json(payload)
 

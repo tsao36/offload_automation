@@ -1915,11 +1915,27 @@ def _attach_effective_counts(
 
 
 def _format_breakdown_table(rows: List[Dict[str, str]], *, include_weighted: bool = False) -> List[str]:
+    normalized_rows: List[Dict[str, str]] = []
+    for row in rows:
+        copied = dict(row)
+        try:
+            active_ips = max(
+                0,
+                int(row.get("unpromoted_ips") or 0)
+                - int(row.get("stale") or 0)
+                - int(row.get("close_pending") or 0),
+            )
+        except (TypeError, ValueError):
+            active_ips = 0
+        copied["active_ips"] = str(active_ips)
+        normalized_rows.append(copied)
+
     headers = [
         ("Reporter", "reporter", "left"),
         ("uHSD", "unpromoted_hsd", "right"),
         ("sHSD", "stale_hsd", "right"),
         ("uIPS", "unpromoted_ips", "right"),
+        ("Active IPS", "active_ips", "right"),
         ("pIPS", "promoted_ips", "right"),
         ("Jira", "jira", "right"),
         ("Stale", "stale", "right"),
@@ -1931,7 +1947,7 @@ def _format_breakdown_table(rows: List[Dict[str, str]], *, include_weighted: boo
         ])
 
     widths = [
-        max(len(title), max((len(str(r.get(key, ""))) for r in rows), default=0))
+        max(len(title), max((len(str(r.get(key, ""))) for r in normalized_rows), default=0))
         for title, key, _ in headers
     ]
 
@@ -1947,7 +1963,7 @@ def _format_breakdown_table(rows: List[Dict[str, str]], *, include_weighted: boo
     ) + " |"
 
     lines = [border, header_line, border]
-    for row in rows:
+    for row in normalized_rows:
         line = "| " + " | ".join(
             _cell(row.get(key, ""), width, align)
             for (_, key, align), width in zip(headers, widths)
@@ -2033,14 +2049,21 @@ def _build_combined_trial_table_data(
         reporter_name = str(row.get("reporter") or "")
         reporter_norm = _normalize_reporter(reporter_name)
         category_counts = category_by_reporter.get(reporter_norm, {})
+        raw_uips = int(row.get("num_unpromoted_ips") or 0)
+        stale_ips = int(row.get("num_stale") or 0)
+        close_pending = int(row.get("num_close_pending") or 0)
+        raw_uhsd = int(row.get("num_unpromoted_hsd") or 0)
+        stale_hsd = int(row.get("num_stale_hsd") or 0)
         combined_rows.append(
             {
                 "name": reporter_name,
-                "uips": int(row.get("num_unpromoted_ips") or 0),
-                "uhsd": int(row.get("num_unpromoted_hsd") or 0),
+                "uips": raw_uips,
+                "active_uips": max(0, raw_uips - stale_ips - close_pending),
+            "uhsd": raw_uhsd,
+            "active_hsd": max(0, raw_uhsd - stale_hsd),
                 "jira": int(row.get("num_jira") or 0),
-                "stale_ips": int(row.get("num_stale") or 0),
-                "stale_hsd": int(row.get("num_stale_hsd") or 0),
+                "stale_ips": stale_ips,
+            "stale_hsd": stale_hsd,
                 "total": int(row.get("total_current_issue_count") or 0),
                 "weighted_loading": (
                     f"{float(weighted_summary.get(reporter_norm, {}).get('weighted_current_issue_count', 0.0)):.2f}"
@@ -2067,7 +2090,9 @@ def _format_combined_trial_table(category_names: List[str], rows: List[Dict[str,
     headers: List[Tuple[str, str, str]] = [
         ("Name", "name", "left"),
         ("uIPS", "uips", "right"),
+        ("Active IPS", "active_uips", "right"),
         ("uHSD", "uhsd", "right"),
+        ("Active HSD", "active_hsd", "right"),
         ("Jira", "jira", "right"),
         ("Stale IPS", "stale_ips", "right"),
         ("Stale HSD", "stale_hsd", "right"),
@@ -2234,12 +2259,14 @@ def _get_unpromoted_ips_rows_for_weighting(
             ips_case_number::text AS issue_key,
             MAX(COALESCE(title, '')) AS title,
             MAX(COALESCE(technology::text, '')) AS technology,
+                        BOOL_OR(COALESCE(is_stale, FALSE)) AS is_stale,
+                        BOOL_OR(COALESCE(is_close_pending, FALSE)) AS is_close_pending,
             'valid_ips' AS source_type
         FROM normalized
         WHERE reporter IS NOT NULL
           AND is_unpromoted_ips
-          AND NOT is_stale
-          AND NOT is_close_pending
+                    AND COALESCE(is_stale, FALSE) = FALSE
+                    AND COALESCE(is_close_pending, FALSE) = FALSE
           AND ips_case_number IS NOT NULL
           {"AND LOWER(reporter) = ANY(" + allowed_reporters_array + ")" if allowed_reporters_array != "NULL" else ""}
         GROUP BY reporter, ips_case_number
@@ -2251,6 +2278,8 @@ def _get_unpromoted_ips_rows_for_weighting(
             jira_id::text AS issue_key,
             MAX(COALESCE(title, '')) AS title,
             MAX(COALESCE(technology::text, '')) AS technology,
+            FALSE AS is_stale,
+            FALSE AS is_close_pending,
             'jira' AS source_type
         FROM normalized
         WHERE reporter IS NOT NULL
@@ -2348,8 +2377,38 @@ def _build_weighted_summary(
     if not weight_rows:
         return {}, []
 
+    active_limits: Dict[str, Tuple[int, int]] = {}
+    for breakdown_row in breakdown_rows:
+        reporter = _normalize_reporter(str(breakdown_row.get("reporter") or ""))
+        if not reporter:
+            continue
+        raw_uips = int(breakdown_row.get("num_unpromoted_ips") or 0)
+        stale_ips = int(breakdown_row.get("num_stale") or 0)
+        close_pending = int(breakdown_row.get("num_close_pending") or 0)
+        active_limits[reporter] = (
+            max(0, raw_uips - stale_ips - close_pending),
+            int(breakdown_row.get("num_jira") or 0),
+        )
+
+    active_candidates = [
+        row
+        for row in weight_rows
+        if not bool(row.get("is_stale")) and not bool(row.get("is_close_pending"))
+    ]
+    active_weight_rows: List[Dict[str, Any]] = []
+    grouped_candidates: Dict[str, List[Dict[str, Any]]] = {}
+    for row in active_candidates:
+        reporter = _normalize_reporter(str(row.get("reporter") or ""))
+        if reporter:
+            grouped_candidates.setdefault(reporter, []).append(row)
+    for reporter, candidates in grouped_candidates.items():
+        active_ips_limit, jira_limit = active_limits.get(reporter, (0, 0))
+        jira_rows = [row for row in candidates if str(row.get("source_type") or "").lower() == "jira"]
+        ips_rows = [row for row in candidates if str(row.get("source_type") or "").lower() != "jira"]
+        active_weight_rows.extend(jira_rows[:jira_limit])
+        active_weight_rows.extend(ips_rows[:active_ips_limit])
     classified = classify_and_weight_rows(
-        weight_rows,
+        active_weight_rows,
         model_bundle=model_bundle,
         category_weights=category_weights,
         category_technology_weights=category_technology_weights,
@@ -2369,11 +2428,15 @@ def _build_weighted_summary(
         else:
             weighted_uips_by_reporter[reporter] = weighted_uips_by_reporter.get(reporter, 0.0) + issue_weight
 
-    # Build per-reporter category/technology issue counts for trial visibility.
+    # Category columns represent active classified issues only: valid IPS rows
+    # already exclude stale/close-pending items, while Jira rows are active queue items.
     category_counts: Dict[Tuple[str, str, str], int] = {}
     for row in classified:
         reporter = _normalize_reporter(str(row.get("reporter") or ""))
         if not reporter:
+            continue
+        source_type = str(row.get("source_type") or "").strip().lower()
+        if source_type not in {"valid_ips", "jira"}:
             continue
         category = str(row.get("predicted_human_category") or "Uncategorized").strip() or "Uncategorized"
         technology = str(row.get("technology") or "Unknown").strip() or "Unknown"
@@ -2417,7 +2480,10 @@ def _build_weighted_summary(
         raw_curr = float(row.get("total_current_issue_count") or 0.0)
         weighted_uips = weighted_uips_by_reporter.get(reporter, valid_uips)
         weighted_jira = weighted_jira_by_reporter.get(reporter, raw_jira)
-        weighted_current = raw_curr - valid_uips - raw_jira + weighted_uips + weighted_jira
+        raw_hsd = float(row.get("num_unpromoted_hsd") or 0.0)
+        raw_stale_hsd = float(row.get("num_stale_hsd") or 0.0)
+        active_hsd = max(0.0, raw_hsd - raw_stale_hsd)
+        weighted_current = active_hsd + weighted_uips + weighted_jira
         result[reporter] = {
             "weighted_unpromoted_ips": round(weighted_uips, 2),
             "weighted_jira": round(weighted_jira, 2),
@@ -3221,7 +3287,7 @@ def _build_email_body_html(
         category_headers = combined_trial_categories or []
         header_html = (
             "<tr>"
-            "<th>Name</th><th>uIPS</th><th>uHSD</th><th>Jira</th><th>Stale IPS</th><th>Stale HSD</th>"
+            "<th>Name</th><th>uIPS</th><th>Active IPS</th><th>uHSD</th><th>Active HSD</th><th>Jira</th><th>Stale IPS</th><th>Stale HSD</th>"
             "<th>Total</th><th>Weighted Loading</th>"
             + "".join(f"<th>{escape(cat)}</th>" for cat in category_headers)
             + "</tr>"
@@ -3234,7 +3300,9 @@ def _build_email_body_html(
                 "<tr>"
                 f"<td>{escape(str(row.get('name') or ''))}</td>"
                 f"<td style='text-align:right'>{int(row.get('uips') or 0)}</td>"
+                f"<td style='text-align:right'>{int(row.get('active_uips') or 0)}</td>"
                 f"<td style='text-align:right'>{int(row.get('uhsd') or 0)}</td>"
+                f"<td style='text-align:right'>{int(row.get('active_hsd') or 0)}</td>"
                 f"<td style='text-align:right'>{int(row.get('jira') or 0)}</td>"
                 f"<td style='text-align:right'>{int(row.get('stale_ips') or 0)}</td>"
                 f"<td style='text-align:right'>{int(row.get('stale_hsd') or 0)}</td>"
@@ -3363,7 +3431,7 @@ def _build_loading_summary_email_html(
     if combined_trial_rows:
         header_html = (
             "<tr>"
-            "<th>Name</th><th>uIPS</th><th>uHSD</th><th>Jira</th><th>Stale IPS</th><th>Stale HSD</th>"
+            "<th>Name</th><th>uIPS</th><th>Active IPS</th><th>uHSD</th><th>Active HSD</th><th>Jira</th><th>Stale IPS</th><th>Stale HSD</th>"
             "<th>Total</th><th>Weighted Loading</th>"
             + "".join(f"<th>{escape(cat)}</th>" for cat in combined_trial_categories)
             + "</tr>"
@@ -3376,7 +3444,9 @@ def _build_loading_summary_email_html(
                 "<tr>"
                 f"<td>{escape(str(row.get('name') or ''))}</td>"
                 f"<td class='num'>{int(row.get('uips') or 0)}</td>"
+                f"<td class='num'>{int(row.get('active_uips') or 0)}</td>"
                 f"<td class='num'>{int(row.get('uhsd') or 0)}</td>"
+                f"<td class='num'>{int(row.get('active_hsd') or 0)}</td>"
                 f"<td class='num'>{int(row.get('jira') or 0)}</td>"
                 f"<td class='num'>{int(row.get('stale_ips') or 0)}</td>"
                 f"<td class='num'>{int(row.get('stale_hsd') or 0)}</td>"
@@ -3392,7 +3462,7 @@ def _build_loading_summary_email_html(
         table_html = (
             "<div class='card'>"
             "<h3>Current Reporter Loading Table</h3>"
-            "<div class='subtle'>Daily snapshot including weighted loading and category distribution.</div>"
+            "<div class='subtle'>Daily snapshot including weighted loading and active issue category distribution.</div>"
             "<table class='tbl'>"
             f"{header_html}"
             + "".join(body_rows)
@@ -3473,7 +3543,7 @@ def _build_loading_summary_email_html(
         "<li><b>Collect current load:</b> calculate each reporter's raw <b>Curr</b> issue count.</li>"
         "<li><b>Classify issues:</b> use the category model on unpromoted IPS issues.</li>"
         "<li><b>Resolve weight:</b> apply category + technology weight first, then category weight, then the default weight.</li>"
-        "<li><b>Calculate weighted loading:</b> aggregate the weighted issue values per reporter for trial visibility.</li>"
+        "<li><b>Calculate weighted loading:</b> use weighted active IPS + weighted Jira + active HSD, where active HSD = uHSD - stale HSD.</li>"
         "<li><b>Make the offload decision:</b> use raw <b>Curr</b> for the threshold and receiver selection; weighted loading does not change the current decision.</li>"
         "</ol>"
         "</details>"
@@ -3531,14 +3601,43 @@ def _save_loading_snapshot(
         "categories": [str(category) for category in categories],
         "rows": [dict(row) for row in rows],
     }
-    temporary_path = f"{snapshot_path}.tmp"
-    try:
+
+    def _write_json(target_path: str) -> None:
+        temporary_path = f"{target_path}.tmp"
         with open(temporary_path, "w", encoding="utf-8") as handle:
             json.dump(payload, handle, ensure_ascii=True, indent=2)
-        os.replace(temporary_path, snapshot_path)
+        os.replace(temporary_path, target_path)
+
+    try:
+        _write_json(snapshot_path)
+        history_dir = _env_str(
+            "OFFLOAD_LOADING_HISTORY_DIR",
+            os.path.join(os.path.dirname(snapshot_path), "loading_history"),
+        ).strip()
+        if history_dir:
+            os.makedirs(history_dir, exist_ok=True)
+            history_path = os.path.join(
+                history_dir,
+                datetime.now().strftime("%Y-%m-%d") + ".json",
+            )
+            _write_json(history_path)
+            cutoff = datetime.now().date().toordinal() - 29
+            for filename in os.listdir(history_dir):
+                if not filename.endswith(".json"):
+                    continue
+                try:
+                    snapshot_date = datetime.strptime(filename[:-5], "%Y-%m-%d").date()
+                except ValueError:
+                    continue
+                if snapshot_date.toordinal() < cutoff:
+                    try:
+                        os.remove(os.path.join(history_dir, filename))
+                    except OSError:
+                        pass
     except Exception as exc:
         LOG.warning("Unable to write loading snapshot %s: %s", snapshot_path, exc)
         try:
+            temporary_path = f"{snapshot_path}.tmp"
             if os.path.exists(temporary_path):
                 os.remove(temporary_path)
         except OSError:
