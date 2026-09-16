@@ -3466,6 +3466,19 @@ def _build_loading_summary_email_html(
             "</div>"
         )
 
+    weighting_flow_html = (
+        "<details class='flow-panel'>"
+        "<summary>Show weighting decision flow</summary>"
+        "<ol class='flow-list'>"
+        "<li><b>Collect current load:</b> calculate each reporter's raw <b>Curr</b> issue count.</li>"
+        "<li><b>Classify issues:</b> use the category model on unpromoted IPS issues.</li>"
+        "<li><b>Resolve weight:</b> apply category + technology weight first, then category weight, then the default weight.</li>"
+        "<li><b>Calculate weighted loading:</b> aggregate the weighted issue values per reporter for trial visibility.</li>"
+        "<li><b>Make the offload decision:</b> use raw <b>Curr</b> for the threshold and receiver selection; weighted loading does not change the current decision.</li>"
+        "</ol>"
+        "</details>"
+    )
+
     return (
         "<html><head>"
         "<style>"
@@ -3474,6 +3487,9 @@ def _build_loading_summary_email_html(
         ".hero{background:linear-gradient(120deg,#1f4e79,#2b7a78);color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:14px;}"
         ".hero h2{margin:0 0 6px 0;font-size:22px;}"
         ".hero p{margin:0;opacity:.95;}"
+        ".flow-panel{margin-top:14px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);border-radius:8px;padding:10px 12px;}"
+        ".flow-panel summary{cursor:pointer;font-weight:700;color:#fff;}"
+        ".flow-list{margin:10px 0 2px 20px;padding:0;color:#f5fbff;line-height:1.55;}"
         ".card{background:#fff;border:1px solid #d8e1ea;border-radius:12px;padding:14px 16px;margin:12px 0;}"
         ".card h3{margin:0 0 6px 0;font-size:17px;color:#0f2940;}"
         ".card h4{margin:8px 0 6px 0;font-size:14px;color:#274c77;}"
@@ -3491,13 +3507,42 @@ def _build_loading_summary_email_html(
         "</style>"
         "</head><body><div class='wrap'>"
         "<div class='hero'><h2>IPS Daily Loading Summary</h2>"
-        "<p>Daily load snapshot for team balancing. This email is summary-only and does not include offload recommendation actions.</p></div>"
+        "<p>Daily load snapshot for team balancing. This email is summary-only and does not include offload recommendation actions.</p>"
+        f"{weighting_flow_html}</div>"
         f"{table_html}"
         f"{definition_html}"
         "<div class='card'><p class='subtle'><i>Weighted Loading is for trial visibility and does not change offload decision logic.</i></p></div>"
         f"{history_html}"
         "</div></body></html>"
     )
+
+
+def _save_loading_snapshot(
+    path: str,
+    *,
+    categories: Sequence[str],
+    rows: Sequence[Dict[str, Any]],
+) -> None:
+    snapshot_path = str(path or "team_loading_latest.json").strip()
+    if not snapshot_path:
+        return
+    payload = {
+        "generated_at": datetime.now().isoformat(timespec="seconds"),
+        "categories": [str(category) for category in categories],
+        "rows": [dict(row) for row in rows],
+    }
+    temporary_path = f"{snapshot_path}.tmp"
+    try:
+        with open(temporary_path, "w", encoding="utf-8") as handle:
+            json.dump(payload, handle, ensure_ascii=True, indent=2)
+        os.replace(temporary_path, snapshot_path)
+    except Exception as exc:
+        LOG.warning("Unable to write loading snapshot %s: %s", snapshot_path, exc)
+        try:
+            if os.path.exists(temporary_path):
+                os.remove(temporary_path)
+        except OSError:
+            pass
 
 
 def _append_history_entry(
@@ -3740,6 +3785,12 @@ def main() -> int:
         LOG.info("Combined trial table (single table with category columns, decision still uses Curr):")
         for line in _format_combined_trial_table(combined_trial_categories, combined_trial_rows):
             LOG.info(line)
+
+    _save_loading_snapshot(
+        _env_str("OFFLOAD_LOADING_SNAPSHOT_FILE", "team_loading_latest.json"),
+        categories=combined_trial_categories,
+        rows=combined_trial_rows,
+    )
 
     decision_counts_all = _attach_effective_counts(
         adjusted_counts_all,

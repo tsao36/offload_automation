@@ -1,0 +1,136 @@
+"""Serve the latest weighted team loading snapshot."""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import subprocess
+import threading
+from datetime import datetime
+from http import HTTPStatus
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parent
+SNAPSHOT_PATH = Path(os.environ.get("OFFLOAD_LOADING_SNAPSHOT_FILE", "team_loading_latest.json"))
+if not SNAPSHOT_PATH.is_absolute():
+    SNAPSHOT_PATH = ROOT / SNAPSHOT_PATH
+BATCH_PATH = ROOT / "run_offload_loading_summary_daily.bat"
+RUN_LOCK = threading.Lock()
+RUN_PROCESS: subprocess.Popen[bytes] | None = None
+RUN_STARTED_AT: str | None = None
+RUN_FINISHED_AT: str | None = None
+RUN_RETURN_CODE: int | None = None
+
+
+class LoadingDashboardHandler(SimpleHTTPRequestHandler):
+    def do_GET(self) -> None:
+        parsed = urlparse(self.path)
+        if parsed.path == "/api/loading":
+            self._send_snapshot()
+            return
+        if parsed.path == "/api/batch":
+            self._send_batch_status()
+            return
+        if parsed.path in ("", "/"):
+            self.path = "/index.html"
+        super().do_GET()
+
+    def do_POST(self) -> None:
+        parsed = urlparse(self.path)
+        if parsed.path == "/api/run-batch":
+            self._start_batch()
+            return
+        self.send_error(HTTPStatus.NOT_FOUND)
+
+    def _send_json(self, payload: dict, status: HTTPStatus = HTTPStatus.OK) -> None:
+        body = json.dumps(payload, ensure_ascii=True).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
+    def _send_snapshot(self) -> None:
+        payload = {
+            "generated_at": None,
+            "categories": [],
+            "rows": [],
+            "available": False,
+            "message": "No batch result is available yet. Run run_offload_loading_summary_daily.bat first.",
+        }
+        try:
+            with SNAPSHOT_PATH.open("r", encoding="utf-8") as handle:
+                snapshot = json.load(handle)
+            if isinstance(snapshot, dict):
+                payload.update(
+                    {
+                        "generated_at": snapshot.get("generated_at"),
+                        "categories": snapshot.get("categories") or [],
+                        "rows": snapshot.get("rows") or [],
+                        "available": True,
+                        "message": "",
+                    }
+                )
+        except (OSError, ValueError):
+            pass
+
+        self._send_json(payload)
+
+    def _send_batch_status(self) -> None:
+        global RUN_FINISHED_AT, RUN_RETURN_CODE
+        with RUN_LOCK:
+            process = RUN_PROCESS
+            if process is not None and process.poll() is not None:
+                RUN_RETURN_CODE = process.returncode
+                if RUN_FINISHED_AT is None:
+                    RUN_FINISHED_AT = datetime.now().isoformat(timespec="seconds")
+            running = process is not None and process.poll() is None
+            payload = {
+                "running": running,
+                "started_at": RUN_STARTED_AT,
+                "finished_at": RUN_FINISHED_AT,
+                "return_code": RUN_RETURN_CODE,
+            }
+        self._send_json(payload)
+
+    def _start_batch(self) -> None:
+        global RUN_PROCESS, RUN_STARTED_AT, RUN_FINISHED_AT, RUN_RETURN_CODE
+        with RUN_LOCK:
+            if RUN_PROCESS is not None and RUN_PROCESS.poll() is None:
+                self._send_json({"running": True, "message": "The batch is already running."}, HTTPStatus.CONFLICT)
+                return
+            if not BATCH_PATH.exists():
+                self._send_json({"running": False, "message": f"Batch file not found: {BATCH_PATH.name}"}, HTTPStatus.NOT_FOUND)
+                return
+            command = ["cmd.exe", "/d", "/c", str(BATCH_PATH)] if os.name == "nt" else ["sh", str(BATCH_PATH)]
+            RUN_PROCESS = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            RUN_STARTED_AT = datetime.now().isoformat(timespec="seconds")
+            RUN_FINISHED_AT = None
+            RUN_RETURN_CODE = None
+        self._send_json({"running": True, "started_at": RUN_STARTED_AT}, HTTPStatus.ACCEPTED)
+
+    def log_message(self, format: str, *args: object) -> None:
+        print(f"[dashboard] {self.address_string()} - {format % args}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Serve the weighted team loading dashboard.")
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8010)
+    args = parser.parse_args()
+    server = ThreadingHTTPServer((args.host, args.port), LoadingDashboardHandler)
+    print(f"Loading dashboard: http://{args.host}:{args.port}/")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+
+
+if __name__ == "__main__":
+    main()

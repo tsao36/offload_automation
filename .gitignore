@@ -18,3 +18,4 @@ __pycache__/
 # Logs & temporary runtime outputs
 logs/
 *.log
+team_loading_latest.json
