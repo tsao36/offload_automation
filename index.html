@@ -7,6 +7,7 @@
   <style>
     :root { color-scheme: light; --ink:#151C27; --muted:#44555F; --surface:#FAF9F3; --line:#7686A3; --accent:#BC704A; --gold:#BC704A; --blue:#44555F; --deep:#151C27; --danger:#BC704A; }
     * { box-sizing: border-box; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     body {
       margin: 0;
       min-height: 100vh;
@@ -16,49 +17,133 @@
     .masthead { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:20px; color:#FAF9F3; }
     h1 { margin:0; color:#FAF9F3; font-size:clamp(28px,4vw,46px); letter-spacing:0; text-shadow:0 1px 2px rgba(21,28,39,.45); }
     .subtitle { margin:8px 0 0; color:#7686A3; }
-    .refresh { padding:11px 16px; border:1px solid var(--accent); border-radius:6px; color:#FAF9F3; background:var(--accent); font:700 14px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
-    .refresh:hover,.refresh:focus-visible { background:#44555F; outline:3px solid rgba(250,249,243,.35); }
     .actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
     .run-batch { padding:11px 16px; border:1px solid #FAF9F3; border-radius:6px; color:#FAF9F3; background:transparent; font:700 14px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
     .run-batch:hover,.run-batch:focus-visible { color:var(--ink); background:#FAF9F3; outline:3px solid rgba(250,249,243,.35); }
     .run-batch:disabled { cursor:wait; opacity:.65; }
-    #run-status { color:#FAF9F3; font:12px "Segoe UI",Tahoma,sans-serif; }
+    .toast { position:fixed; z-index:10; right:20px; bottom:20px; max-width:min(380px,calc(100% - 40px)); padding:12px 16px; color:#FAF9F3; background:var(--deep); border-left:4px solid var(--accent); border-radius:6px; box-shadow:0 12px 32px rgba(21,28,39,.32); font:700 13px "Segoe UI",Tahoma,sans-serif; }
+    .toast[hidden] { display:none; }
     .summary { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
     .stat { min-width:160px; padding:14px 16px; background:rgba(250,249,243,.96); border-left:5px solid var(--gold); border-radius:6px; box-shadow:0 4px 14px rgba(21,28,39,.18); }
     .stat span { display:block; color:var(--muted); font:12px "Segoe UI",Tahoma,sans-serif; text-transform:uppercase; letter-spacing:.08em; }
     .stat strong { display:block; margin-top:4px; font-size:24px; }
+    .updated-stat { position:relative; padding-right:42px; }
+    .weight-button { position:absolute; top:10px; right:10px; width:28px; height:28px; padding:0; border:1px solid var(--line); border-radius:50%; color:var(--ink); background:transparent; font:700 16px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
+    .weight-button:hover,.weight-button:focus-visible { color:#FAF9F3; background:var(--accent); outline:3px solid rgba(188,112,74,.25); }
     .panel { overflow:hidden; background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:0 18px 40px rgba(21,28,39,.22); }
     .panel-head { display:flex; justify-content:space-between; gap:16px; align-items:center; padding:18px 20px; border-bottom:1px solid var(--line); }
     .panel-head h2 { margin:0; font-size:22px; }
     #status { color:var(--muted); font:13px "Segoe UI",Tahoma,sans-serif; }
     .table-wrap { overflow-x:auto; }
-    table { width:100%; min-width:760px; border-collapse:collapse; font:14px "Segoe UI",Tahoma,sans-serif; }
+    table { width:100%; min-width:700px; border-collapse:collapse; font:14px "Segoe UI",Tahoma,sans-serif; }
     th { padding:12px 14px; color:#fff; background:var(--deep); text-align:left; white-space:nowrap; }
     td { padding:12px 14px; border-bottom:1px solid #f0dfb8; }
-    tr:nth-child(even) td { background:#f4f8fc; }
+    #table-head th:nth-child(2),.member-row td:nth-child(2) { min-width:170px; white-space:nowrap; }
+    .member-row:nth-of-type(4n + 3) td { background:#f4f8fc; }
     td:not(:first-child), th:not(:first-child) { text-align:right; }
-    .weighted { color:var(--accent); font-weight:800; }
+    .expand-cell { width:48px; padding:0 0 0 10px; text-align:center !important; }
+    .expand-button { width:32px; height:32px; padding:0; border:1px solid transparent; border-radius:50%; color:var(--ink); background:transparent; font:700 18px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
+    .expand-button:hover,.expand-button:focus-visible { border-color:var(--accent); background:rgba(188,112,74,.14); outline:2px solid rgba(188,112,74,.3); }
+    .member-row[aria-expanded="true"] td { background:rgba(188,112,74,.1); border-bottom-color:transparent; }
+    .detail-row[hidden] { display:none; }
+    .detail-row td { padding:0; background:#fff; text-align:left; }
+    .detail-content { padding:16px 20px 20px 58px; border-bottom:1px solid var(--line); }
+    .detail-meta { display:flex; flex-wrap:wrap; gap:8px 20px; margin-bottom:14px; color:var(--muted); font-size:12px; }
+    .detail-meta strong { color:var(--ink); }
+    .detail-title { margin:0 0 8px; font-size:13px; }
+    .category-list { display:flex; flex-wrap:wrap; gap:6px; }
+    .category-item { padding:5px 8px; border:1px solid #c8ced8; border-radius:4px; color:var(--muted); background:#FAF9F3; font-size:12px; }
+    .category-item strong { color:var(--ink); }
+    .weighted-cell { padding:0; }
+    .weighted-value { width:100%; min-height:44px; padding:12px 14px; border:0; color:var(--accent); background:transparent; font:800 14px "Segoe UI",Tahoma,sans-serif; text-align:right; text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; cursor:pointer; }
+    .weighted-value:hover,.weighted-value:focus-visible { color:var(--ink); background:rgba(188,112,74,.14); outline:2px solid var(--accent); outline-offset:-2px; }
     .empty { padding:38px 22px; color:var(--muted); text-align:center; font-family:"Segoe UI",Tahoma,sans-serif; }
+    .empty p { margin:0 0 14px; }
+    .clear-filters { padding:8px 12px; border:1px solid var(--accent); border-radius:5px; color:var(--ink); background:transparent; font:700 13px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
+    .clear-filters:hover,.clear-filters:focus-visible { color:#FAF9F3; background:var(--accent); outline:3px solid rgba(188,112,74,.25); }
     .toolbar { display:flex; flex-wrap:wrap; gap:10px; padding:14px 20px; background:#FAF9F3; border-bottom:1px solid var(--line); }
     .toolbar label { display:flex; align-items:center; gap:6px; color:var(--muted); font-size:13px; font-weight:700; }
     .toolbar input,.toolbar select { min-height:36px; padding:7px 9px; border:1px solid #7686A3; border-radius:5px; color:var(--ink); background:#fff; font:14px "Segoe UI",Tahoma,sans-serif; }
     .toolbar input:focus-visible,.toolbar select:focus-visible { outline:3px solid rgba(188,112,74,.3); border-color:var(--accent); }
     .footnote { margin:14px 0 0; color:var(--muted); font:12px "Segoe UI",Tahoma,sans-serif; }
     .error { color:var(--danger) !important; font-weight:700; }
-    @media (max-width:650px) { main { width:calc(100% - 20px); margin:18px auto; } .masthead { display:block; } .refresh { margin-top:16px; } }
+    dialog { display:flex; flex-direction:column; width:min(700px,calc(100% - 28px)); max-height:84vh; padding:0; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:8px; box-shadow:0 24px 70px rgba(21,28,39,.4); overflow:hidden; }
+    dialog:not([open]) { display:none; }
+    dialog::backdrop { background:rgba(21,28,39,.68); }
+    .modal-head { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:18px 20px; border-bottom:1px solid var(--line); }
+    .modal-head h2 { margin:0; font-size:22px; }
+    .modal-close { width:32px; height:32px; padding:0; border:1px solid var(--line); border-radius:50%; color:var(--ink); background:transparent; font-size:20px; cursor:pointer; }
+    .modal-close:hover,.modal-close:focus-visible { color:#FAF9F3; background:var(--accent); }
+    .modal-body { min-height:0; flex:1 1 auto; padding:14px 16px 18px; overflow-y:auto; overflow-x:hidden; }
+    .modal-section + .modal-section { margin-top:20px; }
+    .modal-section h3 { margin:0 0 8px; font-size:15px; }
+    .weight-table { width:100%; min-width:0; max-width:100%; table-layout:fixed; border-collapse:collapse; font-size:12px; }
+    .weight-table th,.weight-table td { padding:6px 8px; border-bottom:1px solid #d8dce4; text-align:left; overflow-wrap:anywhere; word-break:break-word; }
+    .weight-table th:first-child,.weight-table td:first-child { width:30%; }
+    .weight-table th:last-child,.weight-table td:last-child { width:70%; }
+    .weight-table th:last-child,.weight-table td:last-child { text-align:left; }
+    .weight-table th { color:#FAF9F3; background:var(--deep); white-space:normal; font-size:11px; }
+    .calculation-table th:first-child,.calculation-table td:first-child { width:auto; }
+    .calculation-table th:not(:first-child),.calculation-table td:not(:first-child) { width:18%; text-align:right; }
+    .calculation-total { display:flex; justify-content:space-between; gap:16px; margin:14px 0 0; padding:12px; color:var(--ink); background:rgba(188,112,74,.14); border-left:4px solid var(--accent); font-size:15px; }
+    .calculation-total strong:last-child { color:var(--accent); font-size:18px; }
+    .calculation-formula { margin:0 0 12px; color:var(--muted); font-size:13px; }
+    .modal-note { margin:0 0 12px; color:var(--muted); font-size:12px; }
+    @media (max-width:650px) {
+      main { width:calc(100% - 20px); margin:18px auto; }
+      .masthead { display:block; }
+      .actions { margin-top:16px; justify-content:flex-start; }
+      .summary { display:grid; grid-template-columns:1fr 1fr; }
+      .stat { min-width:0; }
+      .updated-stat { grid-column:1 / -1; }
+      .toolbar { display:grid; grid-template-columns:1fr 1fr; }
+      .toolbar label { display:block; }
+      .toolbar input,.toolbar select { width:100%; margin-top:5px; }
+      .table-wrap { overflow:visible; }
+      table { min-width:0; }
+      #table-head { display:none; }
+      #table-body { display:block; }
+      .member-row { display:grid; grid-template-columns:40px 1fr auto; align-items:center; padding:8px 8px 8px 4px; border-bottom:1px solid #d8dce4; }
+      .member-row td { display:none; padding:6px 8px; border:0; background:transparent !important; }
+      .member-row .expand-cell,.member-row .name-cell,.member-row .weighted-cell { display:block; }
+      .member-row .expand-cell { grid-column:1; grid-row:1; padding:0; }
+      .member-row .name-cell { grid-column:2; grid-row:1; min-width:0; font-weight:700; text-align:left; white-space:normal; }
+      .member-row .weighted-cell { grid-column:3; grid-row:1; }
+      .weighted-value { min-width:72px; }
+      .detail-row { display:block; }
+      .detail-row td { display:block; }
+      .detail-content { padding:14px 16px; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <header class="masthead"><div><h1>Team Loading Dashboard</h1><p class="subtitle">Weighted loading from the latest daily offload summary</p></div><div class="actions"><span id="run-status">Ready</span><button class="run-batch" type="button" id="run-batch">Run daily loading</button><button class="refresh" type="button" id="refresh">Refresh loading</button></div></header>
-    <section class="summary" aria-label="Loading summary"><div class="stat"><span>Team members</span><strong id="member-count">-</strong></div><div class="stat"><span>Total weighted loading</span><strong id="weighted-total">-</strong></div><div class="stat"><span>Updated</span><strong id="updated">-</strong></div></section>
-    <section class="panel"><div class="panel-head"><h2>Weighted team loading</h2><span id="status">Loading...</span></div><div class="toolbar"><label>Date <select id="date-filter"><option value="latest">Latest</option></select></label><label>Search <input id="name-filter" type="search" placeholder="Member name" aria-label="Search member name"></label><label>Category <select id="category-filter"><option value="">All categories</option></select></label><label>Sort <select id="sort-filter"><option value="weighted_loading_value">Weighted loading</option><option value="total">Total issues</option><option value="name">Name</option></select></label></div><div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div><div class="empty" id="empty" hidden></div></section>
+    <header class="masthead"><div><h1>Team Loading Dashboard</h1><p class="subtitle">Weighted loading from the latest daily offload summary</p></div><div class="actions"><button class="run-batch" type="button" id="run-batch">Run daily loading</button></div></header>
+    <section class="summary" aria-label="Loading summary"><div class="stat"><span>Team members</span><strong id="member-count">-</strong></div><div class="stat"><span>Total weighted loading</span><strong id="weighted-total">-</strong></div><div class="stat updated-stat"><span>Updated</span><strong id="updated">-</strong><button class="weight-button" type="button" id="show-weights" aria-label="View current category and technology weights" title="View weights">i</button></div></section>
+    <section class="panel"><div class="panel-head"><h2>Weighted team loading</h2><span id="status">Loading...</span></div><div class="toolbar"><label>Date <select id="date-filter"><option value="latest">Latest</option></select></label><label>Search <input id="name-filter" type="search" placeholder="Member name" aria-label="Search member name"></label><label>Category <select id="category-filter"><option value="">All categories</option></select></label><label>Sort <select id="sort-filter"><option value="weighted_loading_value">Weighted loading</option><option value="total">Total issues</option><option value="name">Name</option></select></label></div><div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div><div class="empty" id="empty" hidden><p id="empty-message"></p><button class="clear-filters" type="button" id="clear-filters">Clear filters</button></div></section>
     <p class="footnote">Weighted Loading uses active IPS, Jira, and active HSD only. Active HSD = uHSD - Stale HSD.</p>
   </main>
+  <dialog id="weights-modal" aria-labelledby="weights-title"><div class="modal-head"><h2 id="weights-title">Current loading weights</h2><button class="modal-close" type="button" id="close-weights" aria-label="Close weights">&times;</button></div><div class="modal-body" id="weights-body"><p class="modal-note">Loading weight configuration...</p></div></dialog>
+  <dialog id="calculation-modal" aria-labelledby="calculation-title"><div class="modal-head"><h2 id="calculation-title">Weighted loading calculation</h2><button class="modal-close" type="button" id="close-calculation" aria-label="Close calculation">&times;</button></div><div class="modal-body" id="calculation-body"></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script>
     const money = value => Number(value || 0).toFixed(2);
     const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+    const weightNumber = value => Number(value || 0).toFixed(2);
+    const FILTER_STORAGE_KEY = 'loading-dashboard-view';
+    let savedViewState = {};
+    try { savedViewState = JSON.parse(sessionStorage.getItem(FILTER_STORAGE_KEY) || '{}'); } catch (error) { savedViewState = {}; }
+    document.querySelector('#name-filter').value = savedViewState.name || '';
+    document.querySelector('#sort-filter').value = ['weighted_loading_value', 'total', 'name'].includes(savedViewState.sort) ? savedViewState.sort : 'weighted_loading_value';
     let currentSnapshot = { rows: [], categories: [] };
+    let toastTimer;
+    function showToast(message) {
+      const toast = document.querySelector('#toast'); toast.textContent = message; toast.hidden = false; window.clearTimeout(toastTimer); toastTimer = window.setTimeout(() => { toast.hidden = true; }, 5000);
+    }
+    function saveViewState() {
+      savedViewState = { name: document.querySelector('#name-filter').value, category: document.querySelector('#category-filter').value, sort: document.querySelector('#sort-filter').value };
+      sessionStorage.setItem(FILTER_STORAGE_KEY, JSON.stringify(savedViewState));
+    }
     function renderSnapshot() {
       const rows = currentSnapshot.rows.filter(row => {
         const nameMatch = String(row.name || '').toLowerCase().includes(document.querySelector('#name-filter').value.toLowerCase());
@@ -69,9 +154,13 @@
         return key === 'name' ? String(left.name).localeCompare(String(right.name)) : Number(right[key] || 0) - Number(left[key] || 0);
       });
       document.querySelector('#member-count').textContent = rows.length; document.querySelector('#weighted-total').textContent = money(rows.reduce((sum, row) => sum + Number(row.weighted_loading_value || 0), 0));
-      document.querySelector('#table-head').innerHTML = `<tr><th>Name</th><th>uIPS</th><th>Active IPS</th><th>uHSD</th><th>Active HSD</th><th>Jira</th><th>Stale IPS</th><th>Stale HSD</th><th>Total</th><th>Weighted Loading</th>${currentSnapshot.categories.map(category => `<th>Active ${esc(category)}</th>`).join('')}</tr>`;
-      document.querySelector('#table-body').innerHTML = rows.map(row => { const activeUips = row.active_uips ?? Math.max(0, Number(row.uips || 0) - Number(row.stale_ips || 0) - Number(row.close_pending || 0)); const activeHsd = row.active_hsd ?? Math.max(0, Number(row.uhsd || 0) - Number(row.stale_hsd || 0)); return `<tr><td>${esc(row.name)}</td><td>${row.uips ?? 0}</td><td>${activeUips}</td><td>${row.uhsd ?? 0}</td><td>${activeHsd}</td><td>${row.jira ?? 0}</td><td>${row.stale_ips ?? 0}</td><td>${row.stale_hsd ?? 0}</td><td>${row.total ?? 0}</td><td class="weighted">${esc(row.weighted_loading || '')}</td>${currentSnapshot.categories.map(category => `<td>${row.category_counts?.[category] ?? 0}</td>`).join('')}</tr>`; }).join('');
-      const empty = document.querySelector('#empty'); empty.hidden = rows.length > 0; empty.textContent = currentSnapshot.rows.length ? 'No members match the current filters. Clear a filter to see more results.' : (currentSnapshot.message || 'No loading rows are available.');
+      document.querySelector('#table-head').innerHTML = '<tr><th><span class="sr-only">Details</span></th><th>Name</th><th>Active IPS</th><th>Active HSD</th><th>Jira</th><th>Total</th><th>Weighted Loading</th></tr>';
+      document.querySelector('#table-body').innerHTML = rows.map(row => {
+        const activeUips = row.active_uips ?? Math.max(0, Number(row.uips || 0) - Number(row.stale_ips || 0) - Number(row.close_pending || 0)); const activeHsd = row.active_hsd ?? Math.max(0, Number(row.uhsd || 0) - Number(row.stale_hsd || 0)); const rowIndex = currentSnapshot.rows.indexOf(row); const detailId = `member-detail-${rowIndex}`;
+        const categories = Object.entries(row.category_counts || {}).filter(([, count]) => Number(count) > 0).sort((left, right) => Number(right[1]) - Number(left[1]) || left[0].localeCompare(right[0]));
+        return `<tr class="member-row" aria-expanded="false"><td class="expand-cell"><button class="expand-button" type="button" data-detail-id="${detailId}" aria-expanded="false" aria-controls="${detailId}" aria-label="Show details for ${esc(row.name)}">+</button></td><td class="name-cell">${esc(row.name)}</td><td>${activeUips}</td><td>${activeHsd}</td><td>${row.jira ?? 0}</td><td>${row.total ?? 0}</td><td class="weighted-cell"><button class="weighted-value" type="button" data-row-index="${rowIndex}" aria-label="View weighted loading calculation for ${esc(row.name)}">${esc(row.weighted_loading || '')}</button></td></tr><tr class="detail-row" id="${detailId}" hidden><td colspan="7"><div class="detail-content"><div class="detail-meta"><span>Active IPS <strong>${activeUips}</strong></span><span>Active HSD <strong>${activeHsd}</strong></span><span>Jira <strong>${row.jira ?? 0}</strong></span><span>Total <strong>${row.total ?? 0}</strong></span><span>uIPS <strong>${row.uips ?? 0}</strong></span><span>Stale IPS <strong>${row.stale_ips ?? 0}</strong></span><span>uHSD <strong>${row.uhsd ?? 0}</strong></span><span>Stale HSD <strong>${row.stale_hsd ?? 0}</strong></span></div><h3 class="detail-title">Active issue categories</h3><div class="category-list">${categories.length ? categories.map(([category, count]) => `<span class="category-item">${esc(category)} <strong>${count}</strong></span>`).join('') : '<span class="modal-note">No active categorized issues.</span>'}</div></div></td></tr>`;
+      }).join('');
+      const empty = document.querySelector('#empty'); empty.hidden = rows.length > 0; document.querySelector('#empty-message').textContent = currentSnapshot.rows.length ? 'No members match the current filters.' : (currentSnapshot.message || 'No loading rows are available.'); document.querySelector('#clear-filters').hidden = !currentSnapshot.rows.length;
     }
     async function loadDates() {
       const response = await fetch('/api/dates', { cache: 'no-store' }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -85,40 +174,78 @@
         await loadDates(); const date = document.querySelector('#date-filter').value; const response = await fetch(`/api/loading?date=${encodeURIComponent(date)}`, { cache: 'no-store' }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
         currentSnapshot = await response.json(); currentSnapshot.rows = Array.isArray(currentSnapshot.rows) ? currentSnapshot.rows : []; currentSnapshot.categories = Array.isArray(currentSnapshot.categories) ? currentSnapshot.categories : [];
         document.querySelector('#updated').textContent = currentSnapshot.generated_at ? new Date(currentSnapshot.generated_at).toLocaleString() : '-';
-        const categorySelect = document.querySelector('#category-filter'); const selectedCategory = categorySelect.value; categorySelect.innerHTML = '<option value="">All categories</option>'; currentSnapshot.categories.forEach(category => { const option = document.createElement('option'); option.value = category; option.textContent = category; categorySelect.appendChild(option); }); categorySelect.value = currentSnapshot.categories.includes(selectedCategory) ? selectedCategory : '';
+        const categorySelect = document.querySelector('#category-filter'); const selectedCategory = categorySelect.value || savedViewState.category || ''; categorySelect.innerHTML = '<option value="">All categories</option>'; currentSnapshot.categories.forEach(category => { const option = document.createElement('option'); option.value = category; option.textContent = category; categorySelect.appendChild(option); }); categorySelect.value = currentSnapshot.categories.includes(selectedCategory) ? selectedCategory : ''; saveViewState();
         renderSnapshot(); status.textContent = currentSnapshot.available ? (date === 'latest' ? 'Latest snapshot' : `Snapshot ${date}`) : 'Waiting for batch result'; status.classList.remove('error');
-      } catch (error) { status.textContent = 'Unavailable'; status.classList.add('error'); empty.hidden = false; empty.textContent = `Unable to load team loading: ${error.message}`; }
+      } catch (error) {
+        status.classList.add('error');
+        if (currentSnapshot.rows.length) { status.textContent = 'Update failed - showing previous snapshot'; showToast(`Unable to update loading: ${error.message}`); }
+        else { status.textContent = 'Unavailable'; empty.hidden = false; document.querySelector('#empty-message').textContent = `Unable to load team loading: ${error.message}`; document.querySelector('#clear-filters').hidden = true; }
+      }
+    }
+    async function showWeights() {
+      const modal = document.querySelector('#weights-modal'); const body = document.querySelector('#weights-body'); modal.showModal(); body.innerHTML = '<p class="modal-note">Loading weight configuration...</p>';
+      try {
+        const response = await fetch('/api/weights', { cache: 'no-store' }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const weights = await response.json(); const technologies = Object.entries(weights.category_technology_weights || {}).sort((left, right) => { const [leftCategory, leftTechnology] = left[0].split('|'); const [rightCategory, rightTechnology] = right[0].split('|'); return leftTechnology.localeCompare(rightTechnology) || leftCategory.localeCompare(rightCategory); });
+        const rows = (items, label) => `<section class="modal-section"><h3>${label}</h3><table class="weight-table"><thead><tr><th>Category / Tech</th><th>Weight</th></tr></thead><tbody>${items.map(([name, value]) => `<tr><td>${esc(name)}</td><td>${typeof value === 'number' ? weightNumber(value) : esc(value)}</td></tr>`).join('')}</tbody></table></section>`;
+        body.innerHTML = `<p class="modal-note">Default weight: <b>${weightNumber(weights.default_weight)}</b>.</p>${rows(technologies, 'Technology-specific weights')}`;
+      } catch (error) { body.innerHTML = `<p class="modal-note error">Unable to load weights: ${esc(error.message)}</p>`; }
+    }
+    let loadingWeights;
+    async function getLoadingWeights() {
+      if (!loadingWeights) {
+        const response = await fetch('/api/weights', { cache: 'no-store' }); if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        loadingWeights = await response.json();
+      }
+      return loadingWeights;
+    }
+    async function showCalculation(row) {
+      const modal = document.querySelector('#calculation-modal'); const body = document.querySelector('#calculation-body');
+      document.querySelector('#calculation-title').textContent = `${row.name || 'Member'} weighted loading`;
+      modal.showModal(); body.innerHTML = '<p class="modal-note">Loading calculation...</p>';
+      try {
+        const weights = await getLoadingWeights(); const categoryWeights = weights.category_weights || {}; const technologyWeights = weights.category_technology_weights || {}; const defaultWeight = Number(weights.default_weight ?? 1);
+        const activeHsd = Number(row.active_hsd ?? Math.max(0, Number(row.uhsd || 0) - Number(row.stale_hsd || 0))); const items = [{ label: 'Active HSD', count: activeHsd, weight: 1, subtotal: activeHsd }];
+        Object.entries(row.technology_counts || {}).sort(([left], [right]) => left.localeCompare(right)).forEach(([name, rawCount]) => { const [category] = name.split('|'); const count = Number(rawCount || 0); const weight = Number(technologyWeights[name] ?? categoryWeights[category] ?? defaultWeight); items.push({ label: name, count, weight, subtotal: count * weight }); });
+        const calculatedTotal = items.reduce((sum, item) => sum + item.subtotal, 0); const displayedTotal = Number(row.weighted_loading_value ?? row.weighted_loading ?? calculatedTotal);
+        body.innerHTML = `<p class="calculation-formula">Weighted loading = Active HSD + sum of each active IPS/Jira category count &times; its weight.</p><table class="weight-table calculation-table"><thead><tr><th>Component</th><th>Count</th><th>Weight</th><th>Subtotal</th></tr></thead><tbody>${items.map(item => `<tr><td>${esc(item.label)}</td><td>${weightNumber(item.count)}</td><td>${weightNumber(item.weight)}</td><td>${weightNumber(item.subtotal)}</td></tr>`).join('')}</tbody></table><div class="calculation-total"><strong>Total weighted loading</strong><strong>${money(displayedTotal)}</strong></div>${Math.abs(calculatedTotal - displayedTotal) > 0.01 ? `<p class="modal-note error">Current detail totals ${money(calculatedTotal)}; the saved snapshot displays ${money(displayedTotal)}.</p>` : ''}`;
+      } catch (error) { body.innerHTML = `<p class="modal-note error">Unable to load calculation: ${esc(error.message)}</p>`; }
     }
     const runButton = document.querySelector('#run-batch');
-    const runStatus = document.querySelector('#run-status');
     async function readBatchStatus() {
       const response = await fetch('/api/batch', { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
     }
     async function runBatch() {
-      runButton.disabled = true; runStatus.textContent = 'Starting batch...';
+      runButton.disabled = true; runButton.textContent = 'Starting daily loading...';
       try {
         const response = await fetch('/api/run-batch', { method: 'POST' });
         const result = await response.json();
         if (!response.ok && response.status !== 409) throw new Error(result.message || `HTTP ${response.status}`);
-        runStatus.textContent = 'Batch running...';
-        const poll = async () => {
-          const state = await readBatchStatus();
-          if (state.running) { runStatus.textContent = 'Batch running...'; window.setTimeout(poll, 2000); return; }
-          runButton.disabled = false;
-          if (state.return_code === 0) { runStatus.textContent = 'Batch complete'; await loadSnapshot(); }
-          else { runStatus.textContent = `Batch ended with code ${state.return_code ?? 'unknown'}`; }
-        };
-        await poll();
-      } catch (error) { runButton.disabled = false; runStatus.textContent = `Unable to run batch: ${error.message}`; }
+        let state = await readBatchStatus();
+        while (state.running) { runButton.textContent = 'Running daily loading...'; await new Promise(resolve => window.setTimeout(resolve, 2000)); state = await readBatchStatus(); }
+        runButton.disabled = false; runButton.textContent = 'Run daily loading';
+        if (state.return_code === 0) { await loadSnapshot(); showToast('Daily loading completed. The dashboard is up to date.'); }
+        else { showToast(`Daily loading ended with code ${state.return_code ?? 'unknown'}.`); }
+      } catch (error) { runButton.disabled = false; runButton.textContent = 'Run daily loading'; showToast(`Unable to run daily loading: ${error.message}`); }
     }
-    document.querySelector('#refresh').addEventListener('click', loadSnapshot);
     document.querySelector('#date-filter').addEventListener('change', loadSnapshot);
-    document.querySelector('#name-filter').addEventListener('input', renderSnapshot);
-    document.querySelector('#category-filter').addEventListener('change', renderSnapshot);
-    document.querySelector('#sort-filter').addEventListener('change', renderSnapshot);
+    document.querySelector('#name-filter').addEventListener('input', () => { saveViewState(); renderSnapshot(); });
+    document.querySelector('#category-filter').addEventListener('change', () => { saveViewState(); renderSnapshot(); });
+    document.querySelector('#sort-filter').addEventListener('change', () => { saveViewState(); renderSnapshot(); });
+    document.querySelector('#clear-filters').addEventListener('click', () => { document.querySelector('#name-filter').value = ''; document.querySelector('#category-filter').value = ''; saveViewState(); renderSnapshot(); document.querySelector('#name-filter').focus(); });
     runButton.addEventListener('click', runBatch);
+    document.querySelector('#show-weights').addEventListener('click', showWeights);
+    document.querySelector('#close-weights').addEventListener('click', () => document.querySelector('#weights-modal').close());
+    document.querySelector('#table-body').addEventListener('click', event => {
+      const weightedButton = event.target.closest('.weighted-value'); if (weightedButton) { showCalculation(currentSnapshot.rows[Number(weightedButton.dataset.rowIndex)]); return; }
+      const expandButton = event.target.closest('.expand-button'); if (!expandButton) return;
+      const detail = document.getElementById(expandButton.dataset.detailId); const expanded = expandButton.getAttribute('aria-expanded') === 'true'; expandButton.setAttribute('aria-expanded', String(!expanded)); expandButton.setAttribute('aria-label', `${expanded ? 'Show' : 'Hide'} details for ${expandButton.closest('tr').querySelector('.name-cell').textContent}`); expandButton.textContent = expanded ? '+' : '-'; expandButton.closest('tr').setAttribute('aria-expanded', String(!expanded)); detail.hidden = expanded;
+    });
+    document.querySelector('#close-calculation').addEventListener('click', () => document.querySelector('#calculation-modal').close());
+    document.querySelectorAll('dialog').forEach(modal => modal.addEventListener('click', event => { if (event.target === event.currentTarget) event.currentTarget.close(); }));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape') document.querySelectorAll('dialog[open]').forEach(modal => modal.close()); });
     loadSnapshot();
   </script>
 </body>

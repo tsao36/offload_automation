@@ -20,6 +20,7 @@ if not SNAPSHOT_PATH.is_absolute():
 HISTORY_PATH = Path(os.environ.get("OFFLOAD_LOADING_HISTORY_DIR", str(ROOT / "loading_history")))
 if not HISTORY_PATH.is_absolute():
     HISTORY_PATH = ROOT / HISTORY_PATH
+WEIGHT_MAP_PATH = ROOT / "issue_category_weights.json"
 BATCH_PATH = ROOT / "run_offload_loading_summary_daily.bat"
 RUN_LOCK = threading.Lock()
 RUN_PROCESS: subprocess.Popen[bytes] | None = None
@@ -36,6 +37,9 @@ class LoadingDashboardHandler(SimpleHTTPRequestHandler):
             return
         if parsed.path == "/api/dates":
             self._send_dates()
+            return
+        if parsed.path == "/api/weights":
+            self._send_weights()
             return
         if parsed.path == "/api/batch":
             self._send_batch_status()
@@ -85,6 +89,23 @@ class LoadingDashboardHandler(SimpleHTTPRequestHandler):
         if latest_date and latest_date not in dates:
             dates.insert(0, latest_date)
         self._send_json({"dates": dates})
+
+    def _send_weights(self) -> None:
+        payload = {"default_weight": 1.0, "category_weights": {}, "category_technology_weights": {}}
+        try:
+            with WEIGHT_MAP_PATH.open("r", encoding="utf-8") as handle:
+                source = json.load(handle)
+            if isinstance(source, dict):
+                payload.update(
+                    {
+                        "default_weight": source.get("default_weight", 1.0),
+                        "category_weights": source.get("category_weights") or {},
+                        "category_technology_weights": source.get("category_technology_weights") or {},
+                    }
+                )
+        except (OSError, ValueError):
+            payload["message"] = "Weight configuration is unavailable."
+        self._send_json(payload)
 
     def _send_snapshot(self, selected_date: str) -> None:
         payload = {

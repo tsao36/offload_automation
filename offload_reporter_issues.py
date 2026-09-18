@@ -2017,6 +2017,7 @@ def _build_combined_trial_table_data(
     preferred_categories: Optional[List[str]] = None,
 ) -> Tuple[List[str], List[Dict[str, Any]]]:
     category_by_reporter: Dict[str, Dict[str, int]] = {}
+    technology_by_reporter: Dict[str, Dict[str, int]] = {}
     all_categories: set[str] = set()
     preferred = [str(c or "").strip() for c in (preferred_categories or []) if str(c or "").strip()]
     preferred_norm_to_label = {str(c).strip().lower(): str(c).strip() for c in preferred}
@@ -2037,6 +2038,9 @@ def _build_combined_trial_table_data(
         all_categories.add(category)
         reporter_map = category_by_reporter.setdefault(reporter_norm, {})
         reporter_map[category] = int(reporter_map.get(category, 0)) + issue_count
+        technology_key = f"{category}|{str(row.get('technology') or 'Unknown').strip() or 'Unknown'}"
+        technology_map = technology_by_reporter.setdefault(reporter_norm, {})
+        technology_map[technology_key] = int(technology_map.get(technology_key, 0)) + issue_count
 
     if preferred:
         categories = [c for c in preferred if c in all_categories or c]
@@ -2049,6 +2053,7 @@ def _build_combined_trial_table_data(
         reporter_name = str(row.get("reporter") or "")
         reporter_norm = _normalize_reporter(reporter_name)
         category_counts = category_by_reporter.get(reporter_norm, {})
+        technology_counts = technology_by_reporter.get(reporter_norm, {})
         raw_uips = int(row.get("num_unpromoted_ips") or 0)
         stale_ips = int(row.get("num_stale") or 0)
         close_pending = int(row.get("num_close_pending") or 0)
@@ -2074,6 +2079,7 @@ def _build_combined_trial_table_data(
                     weighted_summary.get(reporter_norm, {}).get("weighted_current_issue_count", 0.0)
                 ),
                 "category_counts": category_counts,
+                "technology_counts": technology_counts,
             }
         )
 
