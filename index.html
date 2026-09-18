@@ -127,7 +127,9 @@
   <dialog id="calculation-modal" aria-labelledby="calculation-title"><div class="modal-head"><h2 id="calculation-title">Weighted loading calculation</h2><button class="modal-close" type="button" id="close-calculation" aria-label="Close calculation">&times;</button></div><div class="modal-body" id="calculation-body"></div></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
   <script>
-    const API_BASE = 'http://127.0.0.1:8010';
+    const API_BASE = window.location.protocol === 'file:'
+      ? 'http://127.0.0.1:8010'
+      : `http://${window.location.hostname}:8010`;
     const money = value => Number(value || 0).toFixed(2);
     const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
     const weightNumber = value => Number(value || 0).toFixed(2);
