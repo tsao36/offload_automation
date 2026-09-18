@@ -171,7 +171,7 @@ class LoadingDashboardHandler(SimpleHTTPRequestHandler):
                 self._send_json({"running": False, "message": f"Batch file not found: {BATCH_PATH.name}"}, HTTPStatus.NOT_FOUND)
                 return
             if os.name == "nt":
-                command = ["cmd.exe", "/d", "/c", f'"{BATCH_PATH}" --no-email']
+                command = ["cmd.exe", "/d", "/c", f"{BATCH_PATH} --no-email"]
             else:
                 command = ["sh", str(BATCH_PATH), "--no-email"]
             RUN_PROCESS = subprocess.Popen(command, cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
