@@ -18,10 +18,17 @@
     h1 { margin:0; color:#FAF9F3; font-size:clamp(28px,4vw,46px); letter-spacing:0; text-shadow:0 1px 2px rgba(21,28,39,.45); }
     .subtitle { margin:8px 0 0; color:#7686A3; }
     .actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:flex-end; }
-    .run-batch { padding:11px 16px; border:1px solid #FAF9F3; border-radius:6px; color:#FAF9F3; background:transparent; font:700 14px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
-    .run-batch:hover,.run-batch:focus-visible { color:var(--ink); background:#FAF9F3; outline:3px solid rgba(250,249,243,.35); }
+    .run-batch, .bookmark-batch { padding:11px 16px; border:1px solid #FAF9F3; border-radius:6px; color:#FAF9F3; background:transparent; font:700 14px "Segoe UI",Tahoma,sans-serif; cursor:pointer; }
+    .run-batch:hover,.bookmark-batch:hover,.run-batch:focus-visible,.bookmark-batch:focus-visible { color:var(--ink); background:#FAF9F3; outline:3px solid rgba(250,249,243,.35); }
     .run-batch:disabled { cursor:wait; opacity:.65; }
-    .toast { position:fixed; z-index:10; right:20px; bottom:20px; max-width:min(380px,calc(100% - 40px)); padding:12px 16px; color:#FAF9F3; background:var(--deep); border-left:4px solid var(--accent); border-radius:6px; box-shadow:0 12px 32px rgba(21,28,39,.32); font:700 13px "Segoe UI",Tahoma,sans-serif; }
+    .bookmark-batch { border-color:var(--gold); color:#FAF9F3; background:rgba(188,112,74,.2); position:relative; }
+    .bookmark-popover { position:absolute; left:50%; top:calc(100% + 10px); transform:translateX(-50%) translateY(-4px); min-width:220px; max-width:260px; padding:10px 12px; background:var(--deep); color:#FAF9F3; border-left:4px solid var(--accent); border-radius:6px; box-shadow:0 12px 28px rgba(21,28,39,.2); font:700 12px "Segoe UI",Tahoma,sans-serif; opacity:0; pointer-events:none; transition:opacity .2s ease, transform .2s ease; }
+    .bookmark-popover.visible { opacity:1; transform:translateX(-50%) translateY(0); }
+    .toast { position:fixed; z-index:10; right:20px; bottom:20px; max-width:min(380px,calc(100% - 40px)); padding:12px 16px; color:#FAF9F3; background:var(--deep); border-left:4px solid var(--accent); border-radius:6px; box-shadow:0 12px 32px rgba(21,28,39,.32); font:700 13px "Segoe UI",Tahoma,sans-serif; animation: toastFadeIn .2s ease-out; }
+    @keyframes toastFadeIn {
+      from { opacity:0; transform:translateY(12px); }
+      to { opacity:1; transform:translateY(0); }
+    }
     .toast[hidden] { display:none; }
     .summary { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:16px; }
     .stat { min-width:160px; padding:14px 16px; background:rgba(250,249,243,.96); border-left:5px solid var(--gold); border-radius:6px; box-shadow:0 4px 14px rgba(21,28,39,.18); }
@@ -118,7 +125,7 @@
 </head>
 <body>
   <main>
-    <header class="masthead"><div><h1>Team Loading Dashboard</h1><p class="subtitle">Weighted loading from the latest daily offload summary</p></div><div class="actions"><button class="run-batch" type="button" id="run-batch">Run daily loading</button></div></header>
+    <header class="masthead"><div><h1>Team Loading Dashboard</h1><p class="subtitle">Weighted loading from the latest daily offload summary</p></div><div class="actions"><div style="position:relative;"><button class="bookmark-batch" type="button" id="bookmark-page">★ Add to bookmark</button><div class="bookmark-popover" id="bookmark-popover">Press Ctrl+D (or Cmd+D on Mac) to bookmark this page.</div></div><button class="run-batch" type="button" id="run-batch">Run daily loading</button></div></header>
     <section class="summary" aria-label="Loading summary"><div class="stat"><span>Team members</span><strong id="member-count">-</strong></div><div class="stat"><span>Total weighted loading</span><strong id="weighted-total">-</strong></div><div class="stat updated-stat"><span>Updated</span><strong id="updated">-</strong><button class="weight-button" type="button" id="show-weights" aria-label="View current category and technology weights" title="View weights">i</button></div></section>
     <section class="panel"><div class="panel-head"><h2>Weighted team loading</h2><span id="status">Loading...</span></div><div class="toolbar"><label>Date <select id="date-filter"><option value="latest">Latest</option></select></label><label>Search <input id="name-filter" type="search" placeholder="Member name" aria-label="Search member name"></label><label>Category <select id="category-filter"><option value="">All categories</option></select></label><label>Sort <select id="sort-filter"><option value="weighted_loading_value">Weighted loading</option><option value="total">Total issues</option><option value="name">Name</option></select></label></div><div class="table-wrap"><table><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div><div class="empty" id="empty" hidden><p id="empty-message"></p><button class="clear-filters" type="button" id="clear-filters">Clear filters</button></div></section>
     <p class="footnote">Weighted Loading uses active IPS, Jira, and active HSD only. Active HSD = uHSD - Stale HSD.</p>
@@ -213,6 +220,37 @@
       } catch (error) { body.innerHTML = `<p class="modal-note error">Unable to load calculation: ${esc(error.message)}</p>`; }
     }
     const runButton = document.querySelector('#run-batch');
+    const bookmarkButton = document.querySelector('#bookmark-page');
+    const bookmarkPopover = document.querySelector('#bookmark-popover');
+    bookmarkButton.addEventListener('click', () => {
+      const currentUrl = window.location.href;
+      const title = document.title || 'Team Loading Dashboard';
+      let nativeBookmarkUsed = false;
+      let fallbackMessage = 'Press Ctrl+D (or Cmd+D on Mac) to bookmark this page.';
+
+      if (window.sidebar && window.sidebar.addPanel) {
+        window.sidebar.addPanel(title, currentUrl, '');
+        nativeBookmarkUsed = true;
+      } else if (window.external && typeof window.external.AddFavorite === 'function') {
+        window.external.AddFavorite(currentUrl, title);
+        nativeBookmarkUsed = true;
+      } else if (window.chrome && window.chrome.bookmarks && typeof window.chrome.bookmarks.create === 'function') {
+        try {
+          window.chrome.bookmarks.create({ title, url: currentUrl });
+          nativeBookmarkUsed = true;
+        } catch (error) {
+          fallbackMessage = 'This browser blocked the bookmark prompt. Press Ctrl+D (or Cmd+D on Mac) to bookmark this page.';
+        }
+      }
+
+      bookmarkPopover.textContent = nativeBookmarkUsed ? 'This page was added to your browser bookmarks.' : fallbackMessage;
+      bookmarkPopover.classList.add('visible');
+      window.clearTimeout(bookmarkPopover.hideTimer);
+      bookmarkPopover.hideTimer = window.setTimeout(() => bookmarkPopover.classList.remove('visible'), 2600);
+      if (nativeBookmarkUsed) {
+        showToast('This page was added to your browser bookmarks.');
+      }
+    });
     async function readBatchStatus() {
       const response = await fetch(`${API_BASE}/api/batch`, { cache: 'no-store' });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
